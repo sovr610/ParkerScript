@@ -1,0 +1,2 @@
+a: Core core = new Core();
+b: p = core.loadScript(p);
