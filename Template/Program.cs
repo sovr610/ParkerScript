@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +13,7 @@ namespace ParkerScript2
         //LOAD_REF
 
 
+
         //END_REF
 
 	PADScript p = new PADScript();
@@ -20,17 +21,19 @@ namespace ParkerScript2
         {
             Program p = new Program();
 	    p.loadCustomScripts();
-            if (!args.Contains("/"))
+            if (args == null)
             {
                 p.console();
             }
             else
             {
+		Console.WriteLine("ParkerScript> running File!");
                 foreach (string a in args)
                 {
                     if (a != null)
                     {
-                        p.runFile(a);
+			string ii = a.Replace("/","");
+                        p.runFile(ii);
                     }
                 }
             }
@@ -45,8 +48,9 @@ namespace ParkerScript2
         {
             if (file.ToLower().Contains(".pb"))
             {
-                file = file.Replace(".pb", ".lua");
+                //file = file.Replace(".pb", "");
                 p.executeLuaWithThread(file);
+		Console.ReadLine();
             }
             else
             {
@@ -58,14 +62,14 @@ namespace ParkerScript2
         public void console()
         {
             Console.WriteLine("-----------------COMMAND LINE MODE------------------------");
-            Console.WriteLine("|   *Enter In /exit to end command line                   |");
+            Console.WriteLine("|   *Enter In /exit() to end command line                 |");
             Console.WriteLine("|   *Developed by Parker Bidigare:                        |");
             Console.WriteLine("|    *work.simpleintelligence@gmail.com                   |");
             Console.WriteLine("|    *Powered by Lua, http://www.Lua.org                  |");
             Console.WriteLine("-----------------------------------------------------------");
             while (true)
             {
-		Console.Write("PADScript> ");
+		Console.Write("ParkerScript> ");
                 string cmd = Console.ReadLine();
                 if (cmd == "/exit()")
                     break;
@@ -79,6 +83,7 @@ namespace ParkerScript2
         //this will be dynamically be updated when custom cs code gets added
         public void loadCustomScripts()
         {
+
 
         }
 

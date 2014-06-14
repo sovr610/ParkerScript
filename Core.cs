@@ -57,6 +57,10 @@ class Core
         }
     }
 
+    public void say(string a)
+    {
+    }
+
 	public PADScript loadScript(PADScript l)
 	{
 		l.addLuaCommand("printConsole",this);
