@@ -21,7 +21,7 @@ namespace ParkerScript2
         {
             Program p = new Program();
 	    p.loadCustomScripts();
-            if (args == null)
+            if (args.Length == 0)
             {
                 p.console();
             }
